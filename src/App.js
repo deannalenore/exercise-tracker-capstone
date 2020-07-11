@@ -4,6 +4,13 @@ import "./App.css";
 import "./Components/Welcome";
 import ExerciseLog from "./Components/ExerciseLog";
 
+const axios = require('axios');
+
+axios.get('/ping')
+.then(function(response) {
+  console.log(response);
+});
+
 function App() {
   return (
     <div className="App">

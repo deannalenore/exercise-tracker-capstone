@@ -18,3 +18,4 @@ Exercise Tracker is an easy-to-use web app that enables user to log their daily 
 * [donald-langston](https://github.com/donald-langston)
 * [CherisC](https://github.com/CherisC)
 * [deannalenore](https://github.com/deannalenore)
+* [JSwainCode](https://github.com/JSwainCode)

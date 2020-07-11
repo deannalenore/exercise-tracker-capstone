@@ -2,6 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const axios = require('axios');
+
+axios.get('/ping')
+.then(function(response) {
+  console.log(response);
+});
+
 function App() {
   return (
     <div className="App">

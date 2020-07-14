@@ -7,6 +7,7 @@ Exercise Tracker is an easy-to-use web app that enables users to log their daily
 # Built With
 - React
 - Redux
+- PassportJS
 
 # How it Works
 

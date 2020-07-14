@@ -3,13 +3,8 @@ import { Jumbotron, Container, Nav } from "react-bootstrap";
 import "./App.css";
 import "./Components/Welcome";
 import ExerciseLog from "./Components/ExerciseLog";
-
-const axios = require('axios');
-
-axios.get('/ping')
-.then(function(response) {
-  console.log(response);
-});
+import SignUp from "./Components/SignUp";
+import Login from "./Components/Login";
 
 function App() {
   return (
@@ -33,6 +28,8 @@ function App() {
       </Jumbotron>
 
       <ExerciseLog />
+      <SignUp />
+      <Login />
     </div>
   );
 }

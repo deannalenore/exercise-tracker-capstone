@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+let firstName = "";
+let lastName = "";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,7 +18,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false,
-              maxAge: 60000
+              maxAge: 3600000
             }
     })
 );
@@ -29,7 +31,7 @@ passport.use(new LocalStrategy(
         .then(user => {
             if(!user) {
                 bcrypt.hash(password, saltRounds, function(err, hash) {
-                    User.create({email: email, password: hash})
+                    User.create({firstName: firstName, lastName: lastName, email: email, password: hash})
                     .then(createdUser => {
                         console.log(createdUser);
                         return done(null, createdUser);
@@ -59,17 +61,29 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
+//call this middleware function to user firstname and lastname from req.body
+//which is the post request after form is submitted
+let getFirstAndLastName = function(req, res, next) {
+    firstName = req.body.firstName;
+    lastName = req.body.lastName;
+    next();
+}
 
-
-app.post('/login', passport.authenticate('local', function(err, user, info){
-    if (err) { return next(err); }
-    if (!user) { return res.json({message: "Username/Password incorrect"}); }
-    req.logIn(user, function(err) {
+app.post('/login', getFirstAndLastName, function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
-        return res.json(user);
-      });
-    })
-);
+        if (!user) { return res.status(401).json({message: 'invalid username/password'}); }
+        req.logIn(user, function(err) {
+          if (err) { return next(err); }
+          console.log(req.session);
+          return res.json({
+              first: user.firstName,
+              last: user.lastName
+            });
+        });
+    })(req, res, next);
+});
+
 
 app.get('/logout', (req, res, next) => {
     req.logout();

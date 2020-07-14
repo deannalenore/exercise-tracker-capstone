@@ -2,10 +2,7 @@
 Exercise Tracker
 
 # Description
-Exercise Tracker is an easy-to-use web app that enables user to log their daily exercise while keeping up with their fitness goals using a built-in journal. 
-
-# Motivation
-
+Exercise Tracker is an easy-to-use web app that enables users to log their daily exercise while keeping up with their fitness goals using a built-in journal. 
 
 # Built With
 - React

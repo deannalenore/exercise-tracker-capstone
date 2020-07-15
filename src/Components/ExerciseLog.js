@@ -26,7 +26,7 @@ export class ExerciseLog extends Component {
     return (
       <div>
         <h1>Daily Exercise Log</h1>
-        <div ClassName="form">
+        <div className="form">
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Date</Form.Label>

@@ -53,8 +53,15 @@ export class ExerciseLog extends Component {
                 <option value="swimming">Swimming</option>
               </Form.Control>
             </Form.Group>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Add Info</Form.Label>
+              <Form.Control as="textarea" rows="5" />
+            </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Add Entry
+            </Button>
+            <Button variant="primary" type="submit">
+              Save
             </Button>
           </Form>
         </div>

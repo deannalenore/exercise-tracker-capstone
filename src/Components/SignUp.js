@@ -37,6 +37,9 @@ export class SignUp extends Component {
               firstName: response.data.first,
               lastName: response.data.last
             });
+            localStorage.setItem("firstname", this.state.firstName);
+            localStorage.setItem("lastname", this.state.lastName);
+            localStorage.setItem("loggedIn", this.state.loggedIn);
             formik.resetForm();
         })
       },

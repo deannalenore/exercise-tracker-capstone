@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import { useFormik } from 'formik';
 const axios = require('axios');
 
@@ -11,6 +13,14 @@ export class Login extends Component {
             lastName: "",
             errorMessage: ""
         }
+    }
+
+    componentDidMount() {
+      if(this.props.location.state.loggedIn === false) {
+        this.setState({
+          loggedIn: false
+        })
+      }
     }
 
     LoginForm = () => {
@@ -36,7 +46,11 @@ export class Login extends Component {
                     firstName: response.data.first,
                     lastName: response.data.last,
                 })
+                localStorage.setItem("firstname", this.state.firstName);
+                localStorage.setItem("lastname", this.state.lastName);
+                localStorage.setItem("loggedIn", this.state.loggedIn);
                 formik.resetForm();
+                this.props.history.push("/exercise");
             })
             .catch(error => {
                 if(error.response) {
@@ -70,7 +84,13 @@ export class Login extends Component {
         );
       };
 
+      
+
     render() {
+      if(this.state.loggedIn) {
+        return <Redirect to="/welcome" />
+      }
+      
         return(
             <this.LoginForm />
         )
@@ -78,4 +98,4 @@ export class Login extends Component {
 }
  
 
- export default Login;
+ export default withRouter(Login);

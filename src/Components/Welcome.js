@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Nav} from 'react-bootstrap';
-import NavBar from './Components/NavBar';
+import NavBar from './NavBar';
 
 //export const DailyExercise = () => (
 

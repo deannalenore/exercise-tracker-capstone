@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import { Nav, NavItem } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 
 function NavBar() {
@@ -8,15 +8,15 @@ function NavBar() {
         <div className="App">
 
           <Nav className="justify-content-end" activeKey="/home">
-            <NavItem>
-              <NavLink href="/home">Plan a Workout</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink eventKey="link-1">Log Exercise</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink eventKey="link-2">Logout</NavLink>
-            </NavItem>
+            <Nav.Item>
+              <Nav.Link href="/home">Plan a Workout</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-1">Log Exercise</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/logout" eventKey="link-2">Logout</Nav.Link>
+            </Nav.Item>
           </Nav>
       </div>
     )

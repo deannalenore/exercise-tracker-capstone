@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import {Nav} from 'react-bootstrap';
-import NavBar from './NavBar';
+import MainNavBar from './MainNavBar';
+
 
 //export const DailyExercise = () => (
 
 export class Welcome extends Component {
   render() {
     return (
-     <NavBar />
+     <MainNavBar />
     );
   }
 }

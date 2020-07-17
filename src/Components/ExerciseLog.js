@@ -7,19 +7,24 @@ export class ExerciseLog extends Component {
     this.state = {
       date: "",
       exercise: "",
+      information: "",
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
+    this.setState({
+      date: "",
+      exercise: "",
+      information: "",
+    });
   };
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log(event.target);
   };
 
   render() {
@@ -55,7 +60,13 @@ export class ExerciseLog extends Component {
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>Add Info</Form.Label>
-              <Form.Control as="textarea" rows="5" />
+              <Form.Control
+                as="textarea"
+                rows="5"
+                name="information"
+                onChange={this.handleChange}
+                value={this.state.information}
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
               Add Entry

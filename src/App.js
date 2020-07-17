@@ -6,11 +6,15 @@ import ExerciseLog from "./Components/ExerciseLog";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import {BrowserRouter, Route} from 'react-router-dom';
+import MainNavBar from "./Components/MainNavBar";
+
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+       <MainNavBar />
        <Jumbotron>
           <Container>
             <h1>Exercise Tracker</h1>

@@ -12,6 +12,7 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Logout from "./Components/Logout";
 
+
 function App() {
   return (
     <div className="App">
@@ -46,3 +47,4 @@ function App() {
 }
 
 export default App;
+

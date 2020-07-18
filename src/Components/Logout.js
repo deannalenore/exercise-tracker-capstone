@@ -17,6 +17,9 @@ export class Logout extends Component {
             this.setState({
                 loggedIn: "false"
             })
+            localStorage.removeItem("firstname");
+            localStorage.removeItem("lastname");
+            localStorage.removeItem("loggedIn");
         })
     }
     

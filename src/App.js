@@ -5,9 +5,7 @@ import "./Components/Welcome";
 import ExerciseLog from "./Components/ExerciseLog";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
-import {BrowserRouter, Route} from 'react-router-dom';
 import MainNavBar from "./Components/MainNavBar";
-
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Welcome from "./Components/Welcome";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -27,8 +25,11 @@ function App() {
         </Jumbotron>
         <Switch>
           <Route path="/exercise" component={ExerciseLog} />
+
           <Route path="/signup" component={SignUp} />
+
           <Route path="/login" component={Login} />
+      
           <Route path="/logout" component={Logout} />
           <ProtectedRoute path="/welcome" component={Welcome} loggedIn={localStorage.getItem("loggedIn")} />
         </Switch>

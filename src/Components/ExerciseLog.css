@@ -2,3 +2,22 @@ Form.Label {
   margin: auto, 200px;
   padding: auto, 50px;
 }
+.exercise-header {
+  margin-left: 100px;
+  color: white;
+  padding: 100px;
+}
+
+h2 {
+  color: white;
+}
+
+.button {
+  margin: 20px;
+}
+
+/*.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}*/

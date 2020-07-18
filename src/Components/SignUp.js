@@ -46,7 +46,7 @@ export class SignUp extends Component {
     });
     return (
       <form onSubmit={formik.handleSubmit}>
-        <label style={{color: '#F1F4F7'}} htmlFor="firstName">First Name</label>
+        <label style={{color: '#F1F4F7'}} htmlFor="firstName" className="col-1">First Name</label>
         <input
           id="firstName"
           name="firstName"

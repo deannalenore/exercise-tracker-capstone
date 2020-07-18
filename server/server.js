@@ -75,10 +75,11 @@ app.post('/login', getFirstAndLastName, function(req, res, next) {
         if (!user) { return res.status(401).json({message: 'invalid username/password'}); }
         req.logIn(user, function(err) {
           if (err) { return next(err); }
-          console.log(req.session);
+          console.log(user);
           return res.json({
               first: user.firstName,
-              last: user.lastName
+              last: user.lastName,
+              id: user.id
             });
         });
     })(req, res, next);

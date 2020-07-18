@@ -47,10 +47,12 @@ export class Login extends Component {
                     loggedIn: true,
                     firstName: response.data.first,
                     lastName: response.data.last,
+                    id: response.data.id
                 })
                 localStorage.setItem("firstname", this.state.firstName);
                 localStorage.setItem("lastname", this.state.lastName);
                 localStorage.setItem("loggedIn", this.state.loggedIn);
+                localStorage.setItem("id", this.state.id);
                 formik.resetForm();
                 return <Redirect to="/exercise" />
                 // this.props.history.push("/exercise");

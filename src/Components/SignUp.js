@@ -45,8 +45,8 @@ export class SignUp extends Component {
       },
     });
     return (
-      <form onSubmit={formik.handleSubmit} className="col-1">
-        <label htmlFor="firstName">First Name</label>
+      <form onSubmit={formik.handleSubmit}>
+        <label style={{color: '#F1F4F7'}} htmlFor="firstName" className="col-1">First Name</label>
         <input
           id="firstName"
           name="firstName"
@@ -54,7 +54,7 @@ export class SignUp extends Component {
           onChange={formik.handleChange}
           value={formik.values.firstName}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label style={{color: '#F1F4F7'}} htmlFor="lastName">Last Name</label>
         <input
           id="lastName"
           name="lastName"
@@ -62,7 +62,7 @@ export class SignUp extends Component {
           onChange={formik.handleChange}
           value={formik.values.lastName}
         />
-        <label htmlFor="email">Email Address</label>
+        <label style={{color: '#F1F4F7'}} htmlFor="email">Email Address</label>
         <input
           id="email"
           name="email"
@@ -70,7 +70,7 @@ export class SignUp extends Component {
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <label htmlFor="password">Password</label>
+        <label style={{color: '#F1F4F7'}} htmlFor="password">Password</label>
         <input
           id="password"
           name="password"

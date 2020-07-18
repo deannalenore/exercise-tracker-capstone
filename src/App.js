@@ -5,19 +5,15 @@ import Welcome from "./Components/Welcome";
 import ExerciseLog from "./Components/ExerciseLog";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
-import {BrowserRouter, Route} from 'react-router-dom';
-import MainNavBar from "./Components/MainNavBar";
-
-import ProtectedRoute from "./Components/ProtectedRoute";
-import Welcome from "./Components/Welcome";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import MainNavBar from "./Components/MainNavBar";
+import ProtectedRoute from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <BrowserRouter>
        <MainNavBar />
        <Jumbotron>
@@ -27,11 +23,11 @@ function App() {
           </Container>
         </Jumbotron>
         <Switch>
-          <Route path="/exercise" component={ExerciseLog} />
+          <ProtectedRoute path="/exercise" component={ExerciseLog} loggedIn={localStorage.getItem("loggedIn")} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
-          <ProtectedRoute path="/welcome" component={Welcome} loggedIn={localStorage.getItem("loggedIn")} />
+          <Route path="/welcome" component={Welcome} />
         </Switch>
         </BrowserRouter>
     </div>

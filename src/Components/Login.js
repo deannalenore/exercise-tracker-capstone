@@ -16,8 +16,10 @@ export class Login extends Component {
     }
 
     componentDidMount() {
-      if(this.props.location.state.loggedIn === false) {
+      if(this.props.location.state && this.props.location.state === "false") {
         this.setState({
+          firstName: '',
+          lastName: '',
           loggedIn: false
         })
       }
@@ -50,7 +52,8 @@ export class Login extends Component {
                 localStorage.setItem("lastname", this.state.lastName);
                 localStorage.setItem("loggedIn", this.state.loggedIn);
                 formik.resetForm();
-                this.props.history.push("/exercise");
+                return <Redirect to="/exercise" />
+                // this.props.history.push("/exercise");
             })
             .catch(error => {
                 if(error.response) {
@@ -88,7 +91,7 @@ export class Login extends Component {
 
     render() {
       if(this.state.loggedIn) {
-        return <Redirect to="/welcome" />
+        return <Redirect to="/exercise" />
       }
       
         return(

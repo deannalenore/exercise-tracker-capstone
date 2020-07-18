@@ -7,15 +7,14 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import MainNavBar from "./Components/MainNavBar";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import Welcome from "./Components/Welcome";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Logout from "./Components/Logout";
+
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <BrowserRouter>
        <MainNavBar />
        <Jumbotron>

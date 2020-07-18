@@ -45,7 +45,7 @@ export class SignUp extends Component {
       },
     });
     return (
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className="col-1">
         <label htmlFor="firstName">First Name</label>
         <input
           id="firstName"

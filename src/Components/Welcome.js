@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {Nav} from 'react-bootstrap';
-import MainNavBar from './MainNavBar';
-import './Welcome.css';
+import MainNavBar from "./MainNavBar";
+import "./Welcome.css";
 
 //var logo=require(".././Assets/Images/weights.jpg");
 //figure out why image won't render in background
@@ -10,9 +9,7 @@ import './Welcome.css';
 
 export class Welcome extends Component {
   render() {
-    return (
-     <MainNavBar />
-    );
+    return <MainNavBar />;
   }
 }
 

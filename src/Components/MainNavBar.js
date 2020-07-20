@@ -9,6 +9,7 @@ import { LinkContainer } from "react-router-bootstrap";
 class MainNavBar extends React.Component {
   render() {
     return (
+
       <div className="container">
         <Navbar
           style={{ backgroundColor: "black" }}

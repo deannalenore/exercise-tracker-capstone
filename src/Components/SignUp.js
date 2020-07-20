@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useFormik } from 'formik';
 const axios = require('axios');
  
@@ -35,11 +36,13 @@ export class SignUp extends Component {
             this.setState({
               loggedIn: true,
               firstName: response.data.first,
-              lastName: response.data.last
+              lastName: response.data.last,
+              id: response.data.id
             });
             localStorage.setItem("firstname", this.state.firstName);
             localStorage.setItem("lastname", this.state.lastName);
             localStorage.setItem("loggedIn", this.state.loggedIn);
+            localStorage.setItem("id", this.state.id);
             formik.resetForm();
         })
       },
@@ -84,6 +87,10 @@ export class SignUp extends Component {
   };
 
   render() {
+    if (this.state.loggedIn) {
+      return <Redirect to="/exercise" />;
+    }
+
     return(
       <this.SignupForm />
     )

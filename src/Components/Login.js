@@ -15,15 +15,14 @@ export class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    if (this.props.location.state && this.props.location.state === "false") {
+  /* componentDidMount() {
+    //if this.props.state exists, login was redirected to by loggout route. Clear local state.
+    if (this.props.location.state && this.props.location.state.loggedIn === "false") {
       this.setState({
-        firstName: "",
-        lastName: "",
         loggedIn: false,
       });
     }
-  }
+  } */
 
   LoginForm = () => {
     // Notice that we have to initialize ALL of fields with values. These
@@ -55,8 +54,6 @@ export class Login extends Component {
             localStorage.setItem("loggedIn", this.state.loggedIn);
             localStorage.setItem("id", this.state.id);
             formik.resetForm();
-            return <Redirect to="/exercise" />;
-            // this.props.history.push("/exercise");
           })
           .catch((error) => {
             if (error.response) {

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./ExerciseLog.css";
+const axios = require("axios");
+
 export class ExerciseLog extends Component {
   constructor(props) {
     super(props);
@@ -8,18 +10,30 @@ export class ExerciseLog extends Component {
       date: "",
       exercise: "",
       information: "",
+      logs: []
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
+    let logArray = this.state.logs.concat({exercise: this.state.exercise, information: this.state.information});
+    
     console.log(this.state);
     this.setState({
       date: "",
       exercise: "",
       information: "",
+      logs: logArray
     });
+    console.log(this.state);
   };
+
+  submitToDatabase = () => {
+    axios.post('/exercise/log', {
+      userId: localStorage.getItem("id"),
+      log: this.state.logs
+    })
+  }
 
   handleChange = (event) => {
     this.setState({
@@ -73,7 +87,7 @@ export class ExerciseLog extends Component {
                 <Button variant="primary" type="submit">
                   Add Entry
                 </Button>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={this.submitToDatabase}>
                   Save
                 </Button>
               </div>

@@ -8,8 +8,6 @@ import Login from "./Components/Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainNavBar from "./Components/MainNavBar";
 import ProtectedRoute from "./Components/ProtectedRoute";
-
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Logout from "./Components/Logout";
 
 
@@ -35,11 +33,7 @@ function App() {
           <Route path="/login" component={Login} />
 
           <Route path="/logout" component={Logout} />
-          <ProtectedRoute
-            path="/welcome"
-            component={Welcome}
-            loggedIn={localStorage.getItem("loggedIn")}
-          />
+          <Route path="/welcome" />
         </Switch>
       </BrowserRouter>
     </div>

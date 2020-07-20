@@ -2,3 +2,13 @@ body {
     background-image: url('../Assets/Images/weights.jpg');
 
 }
+
+input{
+    width: 300px;
+ }
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

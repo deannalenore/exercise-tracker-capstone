@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import './SignUp.css';
 import { useFormik } from 'formik';
 const axios = require('axios');
+
+
  
 export class SignUp extends Component {
     constructor(props) {
@@ -45,14 +48,15 @@ export class SignUp extends Component {
       },
     });
     return (
-      <form onSubmit={formik.handleSubmit}>
-        <label style={{color: '#F1F4F7'}} htmlFor="firstName" className="col-1">First Name</label>
+      <form onSubmit={formik.handleSubmit} className="col-1 ">
+        <label style={{color: '#F1F4F7'}} htmlFor="firstName" >First Name</label>
         <input
           id="firstName"
           name="firstName"
           type="text"
           onChange={formik.handleChange}
           value={formik.values.firstName}
+         
         />
         <label style={{color: '#F1F4F7'}} htmlFor="lastName">Last Name</label>
         <input

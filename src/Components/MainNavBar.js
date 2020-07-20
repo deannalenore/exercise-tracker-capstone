@@ -8,36 +8,41 @@ import { LinkContainer } from "react-router-bootstrap";
 class MainNavBar extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Navbar style={{backgroundColor: '#92B5D4'}} navbar navbar-expand-lg fluid collapseOnSelect>
-        <Link className="navbar-brand" to="/">Welcome</Link>
-            <Navbar.Toggle />
+      <div className="container navbar navbar-expand-lg fluid collapseOnSelect">
+        <Navbar style={{backgroundColor: '#92B5D4'}} >
+        <Link className="navbar-brand " to="/">Welcome</Link>
+        <Navbar.Toggle />
          <Navbar.Collapse>
-         <Nav className="mr-auto" pullRight>
-          
-           <ul className='navbar-nav'>
-             <li className='nav-item'>
-              <LinkContainer to="/SignUp">
-                <NavItem>Sign Up</NavItem>
-              </LinkContainer>
-             </li>
-             <li className='nav-item'>  
-              <LinkContainer to="/Login">
-                <NavItem>Login</NavItem>
-              </LinkContainer>
-              </li>
-              <li className='nav-item'>
-              <LinkContainer to="/ExerciseLog">
-                <NavItem>Plan a Workout</NavItem>
-              </LinkContainer>
-              </li>
-              <li className='nav-item'>
-              <LinkContainer to="/LogOut">
-                <NavItem>Log Out</NavItem>
-              </LinkContainer>
-              </li>
-            </ul>  
-           
+            <Nav className="mr-auto" pullRight>
+              
+              <ul className='navbar-nav'>
+
+                  <li className='nav-item'>
+                    <LinkContainer to="/SignUp">
+                    <NavItem>Sign Up</NavItem>
+                    </LinkContainer>
+                  </li>
+
+                  <li className='nav-item'>  
+                    <LinkContainer to="/Login">
+                    <NavItem>Login</NavItem>
+                    </LinkContainer>
+                  </li>
+
+                  <li className='nav-item'>
+                    <LinkContainer to="/ExerciseLog">
+                    <NavItem>Plan a Workout</NavItem>
+                    </LinkContainer>
+                  </li>
+
+                  <li className='nav-item'>
+                    <LinkContainer to="/LogOut">
+                    <NavItem>Log Out</NavItem>
+                    </LinkContainer>
+                  </li>
+
+              </ul>  
+              
             </Nav>
           </Navbar.Collapse>
         </Navbar> 

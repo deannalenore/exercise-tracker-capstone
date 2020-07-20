@@ -12,13 +12,13 @@ export class Logout extends Component {
 
   componentDidMount() {
     axios.get("/logout").then((response) => {
-      console.log(response.data);
       this.setState({
         loggedIn: "false",
       });
       localStorage.removeItem("firstname");
       localStorage.removeItem("lastname");
       localStorage.removeItem("loggedIn");
+      localStorage.removeItem("id");
     });
   }
 

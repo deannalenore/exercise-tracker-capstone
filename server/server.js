@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const db = require('./models/index');
 const User = db.user;
+const ExerciseLog = db.exerciselog;
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bodyParser = require('body-parser');
@@ -33,7 +34,6 @@ passport.use(new LocalStrategy(
                 bcrypt.hash(password, saltRounds, function(err, hash) {
                     User.create({firstName: firstName, lastName: lastName, email: email, password: hash})
                     .then(createdUser => {
-                        console.log(createdUser);
                         return done(null, createdUser);
                     });
                 });
@@ -75,7 +75,6 @@ app.post('/login', getFirstAndLastName, function(req, res, next) {
         if (!user) { return res.status(401).json({message: 'invalid username/password'}); }
         req.logIn(user, function(err) {
           if (err) { return next(err); }
-          console.log(user);
           return res.json({
               first: user.firstName,
               last: user.lastName,
@@ -91,6 +90,19 @@ app.get('/logout', (req, res, next) => {
     res.json({
         message: "Successfully logged out"
     });
+});
+
+app.post('/exercise/log', (req, res, next) => {
+    ExerciseLog.create({userId: req.body.userId, log: req.body.log})
+    .then(createdLog => {
+        console.log(createdLog);
+    })
+    console.log(req.body);
+    res.send("request received");
+});
+
+app.get('/exercise/:id/log', (req, res, next) => {
+
 });
 
 app.get('/ping', (req, res, next) => {

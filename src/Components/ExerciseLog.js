@@ -20,7 +20,7 @@ export class ExerciseLog extends Component {
     
     console.log(this.state);
     this.setState({
-      date: "",
+      // date: "",
       exercise: "",
       information: "",
       logs: logArray
@@ -29,10 +29,17 @@ export class ExerciseLog extends Component {
   };
 
   submitToDatabase = () => {
-    axios.post('/exercise/log', {
-      userId: localStorage.getItem("id"),
-      log: this.state.logs
-    })
+      axios.post('/exercise/log', {
+        date: this.state.date,
+        userId: localStorage.getItem("id"),
+        log: this.state.logs
+      })
+      .then(() => {
+        this.setState({
+          date: "",
+          logs: []
+        })
+      })
   }
 
   handleChange = (event) => {

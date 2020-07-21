@@ -93,6 +93,7 @@ app.get('/logout', (req, res, next) => {
 });
 
 app.post('/exercise/log', (req, res, next) => {
+    req.body.log.unshift({date: req.body.date});
     ExerciseLog.create({userId: req.body.userId, log: req.body.log})
     .then(createdLog => {
         console.log(createdLog);
@@ -102,7 +103,18 @@ app.post('/exercise/log', (req, res, next) => {
 });
 
 app.get('/exercise/:id/log', (req, res, next) => {
-
+    ExerciseLog.findAll({
+        where: {
+            userId: req.params.id
+        }
+    })
+    .then((exerciseLogs) => {
+        //exerciseLogs is an array loop through array and send back logs
+        const returnedLogs = exerciseLogs.map((exercise) => {
+            return exercise.log
+        })
+        res.send(returnedLogs);
+    })
 });
 
 app.get('/ping', (req, res, next) => {

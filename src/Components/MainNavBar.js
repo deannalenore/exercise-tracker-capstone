@@ -2,15 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-//import "bootstrap/dist/css/bootstrap-theme.css";
 import { LinkContainer } from "react-router-bootstrap";
-
+import "./MainNavBar.css";
 
 class MainNavBar extends React.Component {
   render() {
     return (
-
-      <div className="container">
+      <div className="nav-container">
         <Navbar
           style={{ backgroundColor: "black" }}
           navbar
@@ -26,6 +24,11 @@ class MainNavBar extends React.Component {
             <Nav className="mr-auto" pullRight>
               <ul className="navbar-nav">
                 <li className="nav-item">
+                  <LinkContainer to="/ExerciseLog">
+                    <NavItem>Plan a Workout</NavItem>
+                  </LinkContainer>
+                </li>
+                <li className="nav-item">
                   <LinkContainer to="/SignUp">
                     <NavItem>Sign Up</NavItem>
                   </LinkContainer>
@@ -35,11 +38,7 @@ class MainNavBar extends React.Component {
                     <NavItem>Login</NavItem>
                   </LinkContainer>
                 </li>
-                <li className="nav-item">
-                  <LinkContainer to="/ExerciseLog">
-                    <NavItem>Plan a Workout</NavItem>
-                  </LinkContainer>
-                </li>
+
                 <li className="nav-item">
                   <LinkContainer to="/LogOut">
                     <NavItem>Log Out</NavItem>

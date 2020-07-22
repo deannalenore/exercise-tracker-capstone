@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Redirect } from "react-router-dom";
 import { useFormik } from "formik";
+import "./Login_Logout.css";
 const axios = require("axios");
 
 export class Login extends Component {
@@ -66,23 +67,27 @@ export class Login extends Component {
     });
     return (
       <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        <button type="submit">Submit</button>
+        <div class="login-form">
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+        </div>
+        <div class="login-button">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     );
   };

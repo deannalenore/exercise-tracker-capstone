@@ -1,0 +1,12 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 500px;
+  margin-right: 500px;
+  padding: 60px;
+}
+
+.login-button {
+  align-items: center;
+}

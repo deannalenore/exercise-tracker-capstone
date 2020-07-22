@@ -16,14 +16,14 @@ export class Login extends Component {
     };
   }
 
-  /* componentDidMount() {
+  componentDidMount() {
     //if this.props.state exists, login was redirected to by loggout route. Clear local state.
     if (this.props.location.state && this.props.location.state.loggedIn === "false") {
       this.setState({
         loggedIn: false,
       });
     }
-  } */
+  }
 
   LoginForm = () => {
     // Notice that we have to initialize ALL of fields with values. These

@@ -31,7 +31,7 @@ function App() {
           <Route path="/login" component={Login} />
 
           <Route path="/logout" component={Logout} />
-          <Route path="/welcome" />
+          <Route path="/welcome" component={Welcome}/>
         </Switch>
       </BrowserRouter>
     </div>

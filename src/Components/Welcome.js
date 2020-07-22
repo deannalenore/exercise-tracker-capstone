@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MainNavBar from "./MainNavBar";
 import "./Welcome.css";
 const axios = require("axios");
 
@@ -10,17 +9,18 @@ const axios = require("axios");
 
 export class Welcome extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      exerciseLogs: []
-    }
+      exerciseLogs: [],
+    };
   }
 
   componentDidMount() {
-    axios.get(`/exercise/${localStorage.getItem("id")}/log`)
-    .then((response) => {
-      console.log(response.data);
-    })
+    axios
+      .get(`/exercise/${localStorage.getItem("id")}/log`)
+      .then((response) => {
+        console.log(response.data);
+      });
     /* let newArray = [{date: "07/20/2020"}, {exercise: "running"}, {information: "ran 5 miles"}];
     this.setState({
       exerciseLogs: newArray
@@ -37,13 +37,8 @@ export class Welcome extends Component {
         return ` information: ${log.information}`
       }
     }) */
-    
-    return (
-      <>
-      <MainNavBar />
-      {/* {logs} */}
-      </>
-    )
+
+    return <>{/* {logs} */}</>;
   }
 }
 

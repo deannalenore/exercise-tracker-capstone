@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainNavBar from "./Components/MainNavBar";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
+import Welcome from "./Components/Welcome";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <Route path="/login" component={Login} />
 
           <Route path="/logout" component={Logout} />
-          <Route path="/welcome" component={Welcome}/>
+          <Route path="/welcome" component={Welcome} />
         </Switch>
       </BrowserRouter>
     </div>

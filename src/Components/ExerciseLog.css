@@ -19,5 +19,9 @@ h2 {
 }
 
 .button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   margin: 20px;
+  padding: 40px;
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./Welcome.css";
 const axios = require("axios");
 
@@ -7,41 +7,35 @@ const axios = require("axios");
 
 //export const DailyExercise = () => (
 
-
 export class Welcome extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      exerciseLogs: []
-    }
+      exerciseLogs: [],
+    };
   }
-  
+
   componentDidMount() {
-    axios.get(`/exercise/${localStorage.getItem("id")}/log`)
-    .then((response) => {
-      this.setState({
-        renderLogs: response.data
-      })
-    })
-   
+    axios
+      .get(`/exercise/${localStorage.getItem("id")}/log`)
+      .then((response) => {
+        this.setState({
+          renderLogs: response.data,
+        });
+      });
   }
-  
 
   render() {
-      return(
-      
-        
+    return (
       <>
-      {console.log(this.state.renderLogs)}
-      <div>
-        <header className="Log-header">
-          <h2>Exercise Logs</h2>
-        </header>
-      </div>
-      
+        {console.log(this.state.renderLogs)}
+        <div>
+          <header className="Log-header">
+            <h2>Exercise Logs</h2>
+          </header>
+        </div>
       </>
-    )
+    );
   }
 }
 

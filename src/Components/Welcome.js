@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import MainNavBar from "./MainNavBar";
 import "./Welcome.css";
 const axios = require("axios");
+const parse = require('html-react-parser');
 
 //var logo=require(".././Assets/Images/weights.jpg");
 //figure out why image won't render in background
@@ -30,17 +31,31 @@ export class Welcome extends Component {
   
 
   render() {
-      return(
-      
-        
+    if(this.state.renderLogs) {
+      var string = "";
+      this.state.renderLogs.forEach((element, index) => {
+        let i = 0;
+        while(i < element.length) {
+          if(i === 0) {
+            string += `<div>Date: ${element[i].date}`;
+          } else {
+            string += ` Exercise: ${element[i].exercise} Information: ${element[i].information}`;
+          }
+          i++;
+        }
+        string += "</div>";
+      })
+      console.log(string)
+      var parsedString = parse(`<div>${string}</div>`);
+    }
+      return( 
       <>
-      {console.log(this.state.renderLogs)}
       <div>
         <header className="Log-header">
           <h2>Exercise Logs</h2>
         </header>
+        {parsedString}
       </div>
-      
       </>
     )
   }

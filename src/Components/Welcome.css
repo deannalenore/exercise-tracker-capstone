@@ -2,3 +2,10 @@
   background-image: url("../Assets/Images/weights.jpg");
 
 }
+.Log-header {
+  text-align: center;
+  margin: 0 auto;
+  width: 250px;
+  margin-top: 20px;
+  background-color: rgb(58, 60, 61);
+}  

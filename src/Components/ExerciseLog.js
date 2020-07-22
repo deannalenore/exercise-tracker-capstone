@@ -10,37 +10,41 @@ export class ExerciseLog extends Component {
       date: "",
       exercise: "",
       information: "",
-      logs: []
+      logs: [],
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let logArray = this.state.logs.concat({exercise: this.state.exercise, information: this.state.information});
-    
+    let logArray = this.state.logs.concat({
+      exercise: this.state.exercise,
+      information: this.state.information,
+    });
+
     console.log(this.state);
     this.setState({
       // date: "",
       exercise: "",
       information: "",
-      logs: logArray
+      logs: logArray,
     });
     console.log(this.state);
   };
 
   submitToDatabase = () => {
-      axios.post('/exercise/log', {
+    axios
+      .post("/exercise/log", {
         date: this.state.date,
         userId: localStorage.getItem("id"),
-        log: this.state.logs
+        log: this.state.logs,
       })
       .then(() => {
         this.setState({
           date: "",
-          logs: []
-        })
-      })
-  }
+          logs: [],
+        });
+      });
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -53,7 +57,7 @@ export class ExerciseLog extends Component {
       <div class="exercise-header">
         <h1>Daily Exercise Log</h1>
         <div class="container">
-          <div className="form">
+          <div class="form">
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Date</Form.Label>
@@ -94,7 +98,11 @@ export class ExerciseLog extends Component {
                 <Button variant="primary" type="submit">
                   Add Entry
                 </Button>
-                <Button variant="primary" type="submit" onClick={this.submitToDatabase}>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  onClick={this.submitToDatabase}
+                >
                   Save
                 </Button>
               </div>

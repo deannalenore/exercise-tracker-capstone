@@ -1,4 +1,10 @@
-Form.Label {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
   margin: auto, 200px;
   padding: auto, 50px;
 }
@@ -15,9 +21,3 @@ h2 {
 .button {
   margin: 20px;
 }
-
-/*.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}*/

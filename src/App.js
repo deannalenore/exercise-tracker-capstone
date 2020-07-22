@@ -1,7 +1,6 @@
 import React from "react";
 import { Jumbotron, Container } from "react-bootstrap";
 import "./App.css";
-import Welcome from "./Components/Welcome";
 import ExerciseLog from "./Components/ExerciseLog";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
@@ -9,7 +8,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainNavBar from "./Components/MainNavBar";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
-
 
 function App() {
   return (
@@ -41,4 +39,3 @@ function App() {
 }
 
 export default App;
-

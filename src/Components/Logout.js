@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import "./Login_Logout.css";
 import axios from "axios";
 
 export class Logout extends Component {

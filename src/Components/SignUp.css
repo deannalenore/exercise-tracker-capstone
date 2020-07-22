@@ -1,14 +1,16 @@
 body {
-    background-image: url('../Assets/Images/weights.jpg');
-
+  background-image: url("../Assets/Images/weights.jpg");
 }
 
-input{
-    width: 300px;
- }
+.form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 100px;
+  padding: 60px;
+}
 
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.button {
+  align-items: center;
+  margin-left: 700px;
 }

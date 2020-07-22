@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import MainNavBar from "./MainNavBar";
 import "./Welcome.css";
 const axios = require("axios");
 const parse = require('html-react-parser');
@@ -9,26 +8,23 @@ const parse = require('html-react-parser');
 
 //export const DailyExercise = () => (
 
-
 export class Welcome extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      exerciseLogs: []
-    }
+      exerciseLogs: [],
+    };
   }
-  
+
   componentDidMount() {
-    axios.get(`/exercise/${localStorage.getItem("id")}/log`)
-    .then((response) => {
-      this.setState({
-        renderLogs: response.data
-      })
-    })
-   
+    axios
+      .get(`/exercise/${localStorage.getItem("id")}/log`)
+      .then((response) => {
+        this.setState({
+          renderLogs: response.data,
+        });
+      });
   }
-  
 
   render() {
     if(this.state.renderLogs) {
@@ -57,7 +53,7 @@ export class Welcome extends Component {
         {parsedString}
       </div>
       </>
-    )
+    );
   }
 }
 

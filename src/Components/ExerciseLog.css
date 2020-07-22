@@ -18,6 +18,8 @@ h2 {
   color: white;
 }
 
-.button {
-  margin: 20px;
+.exercise-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

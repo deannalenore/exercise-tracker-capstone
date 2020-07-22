@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MainNavBar from "./MainNavBar";
+//import MainNavBar from "./MainNavBar";
 import "./Welcome.css";
 const axios = require("axios");
 
@@ -8,40 +8,39 @@ const axios = require("axios");
 
 //export const DailyExercise = () => (
 
+
 export class Welcome extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
       exerciseLogs: []
     }
   }
-
+  
   componentDidMount() {
     axios.get(`/exercise/${localStorage.getItem("id")}/log`)
     .then((response) => {
-      console.log(response.data);
+      this.setState({
+        renderLogs: response.data
+      })
     })
-    /* let newArray = [{date: "07/20/2020"}, {exercise: "running"}, {information: "ran 5 miles"}];
-    this.setState({
-      exerciseLogs: newArray
-    }) */
+   
   }
+  
 
   render() {
-    /* let logs = this.state.exerciseLogs.map((log, index) => {
-      if(index === 0) {
-        return `date: ${log.date}`;
-      } else if(index === 1){
-        return ` exercise: ${log.exercise}`;
-      } else {
-        return ` information: ${log.information}`
-      }
-    }) */
-    
-    return (
+      return(
+      
+        
       <>
-      <MainNavBar />
-      {/* {logs} */}
+      {console.log(this.state.renderLogs)}
+      <div>
+        <header className="Log-header">
+          <h2>Exercise Logs</h2>
+        </header>
+      </div>
+      
       </>
     )
   }

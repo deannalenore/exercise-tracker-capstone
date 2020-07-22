@@ -24,8 +24,8 @@ class MainNavBar extends React.Component {
             <Nav className="mr-auto" pullRight>
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <LinkContainer to="/ExerciseLog">
-                    <NavItem>Plan a Workout</NavItem>
+                  <LinkContainer to="/welcome">
+                    <NavItem>View Exercise Logs</NavItem>
                   </LinkContainer>
                 </li>
                 <li className="nav-item">

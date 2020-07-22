@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-//import MainNavBar from "./MainNavBar";
+import React, { Component } from 'react';
 import "./Welcome.css";
 const axios = require("axios");
 

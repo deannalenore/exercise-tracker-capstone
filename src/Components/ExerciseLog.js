@@ -94,7 +94,7 @@ export class ExerciseLog extends Component {
                   value={this.state.information}
                 />
               </Form.Group>
-              <div class="button">
+              <div class="exercise-button">
                 <Button type="submit">Add Entry</Button>
                 <Button type="submit" onClick={this.submitToDatabase}>
                   Save

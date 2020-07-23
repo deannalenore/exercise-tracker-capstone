@@ -17,7 +17,7 @@ function App() {
         <MainNavBar />
         <Jumbotron>
           <Container>
-            <h1>Exercise Tracker</h1>
+            <h1>FITrack</h1>
             <p>Keep up with your goals and track your exercise!</p>
           </Container>
         </Jumbotron>

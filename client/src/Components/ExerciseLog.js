@@ -33,7 +33,7 @@ export class ExerciseLog extends Component {
 
   submitToDatabase = () => {
     axios
-      .post("/exercise/log", {
+      .post("process.env.REACT_APP_URL/exercise/log", {
         date: this.state.date,
         userId: localStorage.getItem("id"),
         log: this.state.logs,

@@ -39,7 +39,7 @@ export class Login extends Component {
       },
       onSubmit: (values) => {
         axios
-          .post("/login", {
+          .post("process.env.REACT_APP_URL/login", {
             email: values.email,
             password: values.password,
           })

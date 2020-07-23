@@ -18,7 +18,7 @@ export class Welcome extends Component {
 
   componentDidMount() {
     axios
-      .get(`process.env.REACT_APP_URL/exercise/${localStorage.getItem("id")}/log`)
+      .get(`${process.env.REACT_APP_URL}/exercise/${localStorage.getItem("id")}/log`)
       .then((response) => {
         this.setState({
           renderLogs: response.data,

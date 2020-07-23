@@ -1,19 +1,31 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
+import { Redirect } from "react-router-dom";
 import { useFormik } from "formik";
-import "./SignUp.css";
+import "./Login_Logout.css";
 const axios = require("axios");
 
-export class SignUp extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loggedIn: false,
       firstName: "",
       lastName: "",
+      errorMessage: "",
     };
   }
 
-  SignupForm = () => {
+  componentDidMount() {
+    //if this.props.state exists, login was redirected to by loggout route. Clear local state.
+    if (this.props.location.state && this.props.location.state.loggedIn === "false") {
+      this.setState({
+        loggedIn: false,
+      });
+    }
+  }
+
+  LoginForm = () => {
     // Notice that we have to initialize ALL of fields with values. These
     // could come from props, but since we don't want to prefill this form,
     // we just use an empty string. If you don't do this, React will yell
@@ -27,9 +39,7 @@ export class SignUp extends Component {
       },
       onSubmit: (values) => {
         axios
-          .post("/login", {
-            firstName: values.firstName,
-            lastName: values.lastName,
+          .post("process.env.REACT_APP_URL/login", {
             email: values.email,
             password: values.password,
           })
@@ -38,46 +48,27 @@ export class SignUp extends Component {
               loggedIn: true,
               firstName: response.data.first,
               lastName: response.data.last,
+              id: response.data.id,
             });
             localStorage.setItem("firstname", this.state.firstName);
             localStorage.setItem("lastname", this.state.lastName);
             localStorage.setItem("loggedIn", this.state.loggedIn);
+            localStorage.setItem("id", this.state.id);
             formik.resetForm();
+          })
+          .catch((error) => {
+            if (error.response) {
+              this.setState({
+                errorMessage: error.response.data.message,
+              });
+            }
           });
       },
     });
     return (
       <form onSubmit={formik.handleSubmit}>
-        <div class="signup-form">
-          <label
-            style={{ color: "#F1F4F7" }}
-            htmlFor="firstName"
-            className="col-2"
-          >
-            {" "}
-            {/*changed to col-2 to get First Name horizontal*/}
-            First Name
-          </label>
-          <input
-            id="firstName"
-            name="firstName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.firstName}
-          />
-          <label style={{ color: "#F1F4F7" }} htmlFor="lastName">
-            Last Name
-          </label>
-          <input
-            id="lastName"
-            name="lastName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.lastName}
-          />
-          <label style={{ color: "#F1F4F7" }} htmlFor="email">
-            Email Address
-          </label>
+        <div class="login-form">
+          <label htmlFor="email">Email Address</label>
           <input
             id="email"
             name="email"
@@ -85,9 +76,7 @@ export class SignUp extends Component {
             onChange={formik.handleChange}
             value={formik.values.email}
           />
-          <label style={{ color: "#F1F4F7" }} htmlFor="password">
-            Password
-          </label>
+          <label htmlFor="password">Password</label>
           <input
             id="password"
             name="password"
@@ -96,7 +85,7 @@ export class SignUp extends Component {
             value={formik.values.password}
           />
         </div>
-        <div class="button">
+        <div class="login-button">
           <button type="submit">Submit</button>
         </div>
       </form>
@@ -104,8 +93,12 @@ export class SignUp extends Component {
   };
 
   render() {
-    return <this.SignupForm />;
+    if (this.state.loggedIn) {
+      return <Redirect to="/exercise" />;
+    }
+
+    return <this.LoginForm />;
   }
 }
 
-export default SignUp;
+export default withRouter(Login);

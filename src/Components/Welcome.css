@@ -9,3 +9,15 @@
   margin-top: 20px;
   background-color: rgb(58, 60, 61);
 }  
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  }
+
+  .card-text{
+    text-align: center;
+  }

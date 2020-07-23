@@ -33,7 +33,7 @@ export class Welcome extends Component {
         let i = 0;
         while(i < element.length) {
           if(i === 0) {
-            string += `<div>Date: ${element[i].date}`;
+            string += `<div>Date: ${element[i].date}<br/>`;
           } else {
             string += ` Exercise: ${element[i].exercise} Information: ${element[i].information}`;
           }
@@ -50,8 +50,13 @@ export class Welcome extends Component {
         <header className="Log-header">
           <h2>Exercise Logs</h2>
         </header>
-        {parsedString}
+        {/* {parsedString} */}
       </div>
+        <div class="card">
+            <div class="card-body">
+                    <p class="card-text">{parsedString}</p>
+            </div>
+        </div>
       </>
     );
   }

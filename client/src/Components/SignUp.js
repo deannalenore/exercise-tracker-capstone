@@ -27,7 +27,7 @@ export class SignUp extends Component {
       },
       onSubmit: (values) => {
         axios
-          .post("/login", {
+          .post("process.env.REACT_APP_URL/login", {
             firstName: values.firstName,
             lastName: values.lastName,
             email: values.email,

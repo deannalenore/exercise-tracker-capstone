@@ -12,7 +12,7 @@ export class Logout extends Component {
   }
 
   componentDidMount() {
-    axios.get("/logout").then((response) => {
+    axios.get("process.env.REACT_APP_URL/logout").then((response) => {
       this.setState({
         loggedIn: "false",
       });

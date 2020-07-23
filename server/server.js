@@ -111,7 +111,7 @@ app.get('/exercise/:id/log', (req, res, next) => {
     .then((exerciseLogs) => {
         //exerciseLogs is an array loop through array and send back logs
         const returnedLogs = exerciseLogs.map((exercise) => {
-            return exercise.log
+            return exercise.log;
         })
         res.send(returnedLogs);
     })
@@ -121,4 +121,4 @@ app.get('/ping', (req, res, next) => {
     res.send("Hello world");
 })
 
-app.listen(3001, () => console.log("Server started on port 3001"));
+app.listen(process.env.PORT || 3001);

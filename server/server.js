@@ -61,6 +61,11 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
 //call this middleware function to user firstname and lastname from req.body
 //which is the post request after form is submitted
 let getFirstAndLastName = function(req, res, next) {

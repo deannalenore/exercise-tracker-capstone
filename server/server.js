@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const cors = require('cors');
 let firstName = "";
 let lastName = "";
 
@@ -61,10 +62,7 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
+app.use(cors());
 
 //call this middleware function to user firstname and lastname from req.body
 //which is the post request after form is submitted
